@@ -30,7 +30,7 @@ const displayResults = (nums, results) => {
     // getting array elements
     results.forEach(result => {
         const div = document.createElement('div');
-        div.classList.add('col');
+        div.classList.add('columns');
         const image = `https://covers.openlibrary.org/b/id/${result.cover_i}-M.jpg`;
         let authorName = result.author_name;
         let publishYear = result.first_publish_year;
@@ -39,17 +39,17 @@ const displayResults = (nums, results) => {
             authorName = ['Unknown Author']
         }
         if (publishYear === undefined) {
-            publishYear = ['.....']
+            publishYear = ['........']
         }
         if (publisher === undefined) {
             publisher = ['Unknown']
         }
         div.innerHTML = `
-           <img src="${image}" class="card-img-top">
+           <img src="${image}" class="card-img-top p-4">
              <div class="card-body">
-             <h1 class="card-title">${result.title}</h2>
-           <h3>${authorName[0]}</h3>
-             <h5>${publishYear}</h5>
+             <h3 class="card-title text-danger">${result.title}</h3>
+           <h4>${authorName[0]}</h4>
+             <h5 class="text-info">${publishYear}</h5>
             <h6>${publisher[0]}</h6>
         </div>
         </div>`;
