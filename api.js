@@ -12,7 +12,6 @@ const searchInfo = () => {
 
 // function for displaying book details
 const displayResults = (nums, results) => {
-    console.log(results.length)
     const numFound = document.getElementById('num-found');
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
@@ -24,7 +23,7 @@ const displayResults = (nums, results) => {
         errorMessage.innerHTML = `<h1 class="mt-5 text-danger text-center">No Result Found!!!</h1>`;
     }
     else {
-        numFound.innerHTML = `<h3>Found results ${results.length} of ${nums.numFound}</h3>`
+        numFound.innerHTML = `<h3>Showing results '${results.length}' of total results '${nums.numFound}'</h3>`
         errorMessage.innerHTML = ' ';
     }
 
