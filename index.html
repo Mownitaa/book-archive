@@ -25,6 +25,8 @@
 </head>
 
 <body>
+
+    <!-- search input field area -->
     <header>
         <div id="container" class="input-group mb-3 mx-auto w-50 mt-5">
             <input id="input-field" type="text" class="form-control" placeholder="Search books"
@@ -32,32 +34,24 @@
             <button onclick="searchInfo()" id="search-button" class="btn btn-danger" type="button"
                 id="button-addon2">Search</button>
         </div>
-
     </header>
 
-
+    <!-- book details area -->
     <section class="container">
 
         <!-- number of total search result -->
         <div id="num-found" class="mt-md-5"></div>
 
-        <!-- no result found -->
+        <!-- no result found area-->
         <div id="error-message"></div>
 
         <!--searched books result area -->
         <div id="search-result" class="row row-cols-1 row-cols-md-4 g-3">
-            <!-- <div class="col"> -->
-            <!-- <div class="card h-100"> -->
-            <!-- <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                </div> -->
-            <!-- </div> -->
-            <!-- </div> -->
+
         </div>
     </section>
+
+
     <!-- bootstrap js link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"

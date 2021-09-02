@@ -8,10 +8,10 @@ const searchInfo = () => {
         .then(res => res.json())
         .then(data => displayResults(data, data.docs));
 }
-// function for displaying details
+
+
+// function for displaying book details
 const displayResults = (nums, results) => {
-    // console.log(nums)
-    // console.log(results)
     const numFound = document.getElementById('num-found');
     numFound.innerHTML = `<h3>Total number of results found: ${nums.numFound}</h3>`
     const searchResult = document.getElementById('search-result');
@@ -28,11 +28,9 @@ const displayResults = (nums, results) => {
 
     // getting array elements
     results.forEach(result => {
-
         const div = document.createElement('div');
         div.classList.add('col');
         const image = `https://covers.openlibrary.org/b/id/${result.cover_i}-M.jpg`;
-
         div.innerHTML = `
            <img src="${image}" class="card-img-top">
              <div class="card-body">
@@ -43,7 +41,6 @@ const displayResults = (nums, results) => {
         </div>
         </div>`;
         searchResult.appendChild(div);
-
     })
 }
 
