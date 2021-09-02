@@ -12,6 +12,7 @@ const searchInfo = () => {
 
 // function for displaying book details
 const displayResults = (nums, results) => {
+    console.log(results);
     const numFound = document.getElementById('num-found');
     numFound.innerHTML = `<h3>Total number of results found: ${nums.numFound}</h3>`
     const searchResult = document.getElementById('search-result');
@@ -31,13 +32,25 @@ const displayResults = (nums, results) => {
         const div = document.createElement('div');
         div.classList.add('col');
         const image = `https://covers.openlibrary.org/b/id/${result.cover_i}-M.jpg`;
+        let authorName = result.author_name;
+        let publishYear = result.first_publish_year;
+        let publisher = result.publisher;
+        if (authorName === undefined) {
+            authorName = ['Unknown Author']
+        }
+        if (publishYear === undefined) {
+            publishYear = ['.....']
+        }
+        if (publisher === undefined) {
+            publisher = ['Unknown']
+        }
         div.innerHTML = `
            <img src="${image}" class="card-img-top">
              <div class="card-body">
              <h1 class="card-title">${result.title}</h2>
-            <h3>${result.author_name}</h3>
-             <h5>${result.first_publish_year}</h5>
-            <h6>${result.publisher}</h6>
+           <h3>${authorName[0]}</h3>
+             <h5>${publishYear}</h5>
+            <h6>${publisher[0]}</h6>
         </div>
         </div>`;
         searchResult.appendChild(div);
