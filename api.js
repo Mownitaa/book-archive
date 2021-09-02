@@ -20,7 +20,7 @@ const displayResults = (nums, results) => {
     const errorMessage = document.getElementById('error-message');
     if (results.length === 0) {
         numFound.innerHTML = ' ';
-        errorMessage.innerHTML = `<h2 class="text-danger">No Result Found!!!</h2>`;
+        errorMessage.innerHTML = `<h1 class="mt-5 text-danger text-center">No Result Found!!!</h1>`;
     }
     else {
         numFound.innerHTML = `<h3>Total number of results found: ${nums.numFound}</h3>`
