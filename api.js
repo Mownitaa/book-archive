@@ -3,7 +3,7 @@ const searchInfo = () => {
     const inputField = document.getElementById('input-field');
     const searchText = inputField.value;
     inputField.value = '';
-    const url = `http://openlibrary.org/search.json?q=${searchText}`
+    const url = `https://openlibrary.org/search.json?q=${searchText}`
     fetch(url)
         .then(res => res.json())
         .then(data => displayResults(data, data.docs));
@@ -17,16 +17,26 @@ const displayResults = (nums, results) => {
     // console.log(results)
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
+    if (results.length === 0) {
+        console.log('No result found');
+        const errorMessage = document.getElementById('error-message');
 
+        const div = document.createElement('div');
+        div.innerHTML = `<h4 class="text-danger">No Result Found!!!</h4>`;
+        errorMessage.appendChild(div);
+
+    }
+
+    else if (results.length !== 0) {
+        const errorMessage = document.getElementById('error-message');
+
+        const div = document.createElement('div');
+        div.textContent = '';
+        errorMessage.appendChild(div);
+    }
 
     results.forEach(result => {
-        // if (result === 0) {
-        //     const errorMessage = document.getElementById('error-message');
-        //     const div = document.createElement('div');
-        //     div.innerHTML = `<h4>No Result Found</h4>`;
-        //     errorMessage.appendChild(div);
-        // }
-        // else {
+
         const div = document.createElement('div');
         div.classList.add('col');
         const image = `https://covers.openlibrary.org/b/id/${result.cover_i}-M.jpg`;
@@ -41,7 +51,7 @@ const displayResults = (nums, results) => {
         </div>
         </div>`;
         searchResult.appendChild(div);
-        // }
+
     })
 }
 
