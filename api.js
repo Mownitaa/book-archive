@@ -12,18 +12,18 @@ const searchInfo = () => {
 
 // function for displaying book details
 const displayResults = (nums, results) => {
-    console.log(results);
     const numFound = document.getElementById('num-found');
-    numFound.innerHTML = `<h3>Total number of results found: ${nums.numFound}</h3>`
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
 
     // conditions about getting searched results
     const errorMessage = document.getElementById('error-message');
     if (results.length === 0) {
-        errorMessage.innerHTML = `<h4 class="text-danger">No Result Found!!!</h4>`;
+        numFound.innerHTML = ' ';
+        errorMessage.innerHTML = `<h2 class="text-danger">No Result Found!!!</h2>`;
     }
     else {
+        numFound.innerHTML = `<h3>Total number of results found: ${nums.numFound}</h3>`
         errorMessage.innerHTML = ' ';
     }
 
