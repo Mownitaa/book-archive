@@ -1,4 +1,4 @@
-
+//load informations by fetching data
 const searchInfo = () => {
     const inputField = document.getElementById('input-field');
     const searchText = inputField.value;
@@ -8,33 +8,25 @@ const searchInfo = () => {
         .then(res => res.json())
         .then(data => displayResults(data, data.docs));
 }
-
+// function for displaying details
 const displayResults = (nums, results) => {
     // console.log(nums)
     // console.log(results)
     const numFound = document.getElementById('num-found');
     numFound.innerHTML = `<h3>Total number of results found: ${nums.numFound}</h3>`
-    // console.log(results)
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
+
+    // conditions about getting searched results
+    const errorMessage = document.getElementById('error-message');
     if (results.length === 0) {
-        console.log('No result found');
-        const errorMessage = document.getElementById('error-message');
-
-        const div = document.createElement('div');
-        div.innerHTML = `<h4 class="text-danger">No Result Found!!!</h4>`;
-        errorMessage.appendChild(div);
-
+        errorMessage.innerHTML = `<h4 class="text-danger">No Result Found!!!</h4>`;
+    }
+    else {
+        errorMessage.innerHTML = ' ';
     }
 
-    else if (results.length !== 0) {
-        const errorMessage = document.getElementById('error-message');
-
-        const div = document.createElement('div');
-        div.textContent = '';
-        errorMessage.appendChild(div);
-    }
-
+    // getting array elements
     results.forEach(result => {
 
         const div = document.createElement('div');
